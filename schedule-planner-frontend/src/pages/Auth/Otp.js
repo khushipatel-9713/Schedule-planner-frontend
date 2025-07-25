@@ -1,94 +1,4 @@
-// import React, { useState } from "react";
-// import axios from "axios";
-// import { useNavigate } from "react-router-dom";
 
-// const Otpverify = () => {
-//   const [email, setEmail] = useState("");
-//   const [otp, setOtp] = useState("");
-//   const [message, setMessage] = useState("");
-//   const navigate = useNavigate();
-
-//   const handleVerify = async (e) => {
-//     e.preventDefault();
-
-//     try {
-//       const response = await axios.post("http://localhost:5000/auth/verify", {
-//         email,
-//         otp,
-//       });
-
-//       if (response.status ===201) {
-//         setMessage("✅ OTP verified successfully!");
-//         navigate('/login');
-        
-//       } else {
-//         setMessage("❌ Invalid OTP.");
-//       }
-//     } catch (error) {
-//       setMessage("❌ Server Error. Try again.");
-//     }
-//   };
-
-//   return (
-//     <div style={styles.container}>
-//       <h2>OTP Verification</h2>
-//       <form onSubmit={handleVerify} style={styles.form}>
-//         <input
-//           type="email"
-//           placeholder="Enter Email"
-//           value={email}
-//           onChange={(e) => setEmail(e.target.value)}
-//           required
-//           style={styles.input}
-//         />
-//         <input
-//           type="text"
-//           placeholder="Enter OTP"
-//           value={otp}
-//           onChange={(e) => setOtp(e.target.value)}
-//           required
-//           style={styles.input}
-//         />
-//         <button type="submit" style={styles.button}>Verify OTP</button>
-//       </form>
-//       <p>{message}</p>
-//     </div>
-//   );
-// };
-
-// const styles = {
-//   container: {
-//     maxWidth: "400px",
-//     margin: "auto",
-//     padding: "2rem",
-//     textAlign: "center",
-//     boxShadow: "0 0 10px #ccc",
-//     borderRadius: "10px",
-//     marginTop: "5rem"
-//   },
-//   form: {
-//     display: "flex",
-//     flexDirection: "column",
-//     gap: "1rem"
-//   },
-//   input: {
-//     padding: "10px",
-//     fontSize: "1rem",
-//     borderRadius: "5px",
-//     border: "1px solid #ccc"
-//   },
-//   button: {
-//     padding: "10px",
-//     fontSize: "1rem",
-//     backgroundColor: "#007bff",
-//     color: "white",
-//     border: "none",
-//     borderRadius: "5px",
-//     cursor: "pointer"
-//   }
-// };
-
-// export default Otpverify;
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -104,7 +14,7 @@ const Otpverify = () => {
   const handleVerify = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post("/verify", {
+      const response = await api.post("/auth/verify", {
         email,
         otp,
       });
